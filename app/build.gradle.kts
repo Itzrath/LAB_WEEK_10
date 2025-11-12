@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kapt)
 }
 
 android {
@@ -36,6 +37,11 @@ android {
 }
 
 dependencies {
+    val roomVersion = "2.6.0"
+    implementation ("androidx.room:room-runtime:$roomVersion")
+    annotationProcessor("androidx.room:room-compiler:$roomVersion")
+    kapt ("androidx.room:room-compiler:$roomVersion")
+
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
